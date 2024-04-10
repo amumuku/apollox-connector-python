@@ -164,7 +164,7 @@ def cancel_batch_order(self, symbol: str, orderIdList: list, origClientOrderIdLi
     """
     
     check_required_parameter(symbol, "symbol")
-    params = {"symbol": symbol, **kwargs}
+    params = {"symbol": symbol,"orderIdList":orderIdList,"origClientOrderIdList":origClientOrderIdList,**kwargs}
     url_path = "/fapi/v1/batchOrders"
     return self.sign_request("DELETE", url_path, params)
 
